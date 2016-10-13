@@ -4,5 +4,8 @@
 (defn say-hello []
   (js/console.log "Hello from ClojureScript"))
 
-;; This function is called immediately the browser loads
-(say-hello)
+(defn app []
+  [:div
+   [:p "Hello from Reagent!!!"]])
+
+(reagent/render [app] (js/document.getElementById "cljs-target"))
