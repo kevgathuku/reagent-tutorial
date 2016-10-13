@@ -13,9 +13,9 @@
                           {:display "Sturridge"}]}))
 
 (defn items-list [items]
-  [:div {:class "items-list"}
+  [:div.items-list
    (for [item items]
-     [:div {:class "item" :key (:display item)}
+     [:div.item {:key (:display item)}
       [:p (:display item)]])])
 
 (defn app []
