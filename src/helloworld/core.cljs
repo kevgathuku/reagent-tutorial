@@ -5,12 +5,22 @@
   (js/console.log "Hello from ClojureScript"))
 
 (def app-state
-  (reagent/atom {:message "Hello from app state" :count 3}))
+  (reagent/atom {:message "Hello from app state"
+                 :items [{:display "Karius"}
+                          {:display "Lovren"}
+                          {:display "Henderson"}
+                          {:display "Coutinho"}
+                          {:display "Sturridge"}]}))
+
+(defn items-list [items]
+  [:div {:class "items-list"}
+   (for [item items]
+     [:div {:class "item" :key (:display item)}
+      [:p (:display item)]])])
 
 (defn app []
   [:div
-    (if (> (:count @app-state) 1)
-      [:h1 (:message @app-state)]
-      [:h1 "Hello from the component"])])
+    [:h1 (:message @app-state)]
+    [items-list (:items @app-state)]])
 
 (reagent/render [app] (js/document.getElementById "cljs-target"))
