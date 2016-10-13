@@ -4,9 +4,13 @@
 (defn say-hello []
   (js/console.log "Hello from ClojureScript"))
 
+(def app-state
+  (reagent/atom {:message "Hello from app state" :count 3}))
+
 (defn app []
   [:div
-   (for [i (range 5)]
-     [:h1 {:key i} (str i " " "Hello from Reagent!!!")])])
+    (if (> (:count @app-state) 1)
+      [:h1 (:message @app-state)]
+      [:h1 "Hello from the component"])])
 
 (reagent/render [app] (js/document.getElementById "cljs-target"))
