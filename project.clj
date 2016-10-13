@@ -6,15 +6,15 @@
             :main helloworld.core
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [org.clojure/clojurescript "1.9.229"]
-                           [reagent "0.6.0"]
-                           [lein-cljsbuild "1.1.4"]]
+                           [reagent "0.6.0"]]
             :cljsbuild {:builds [{:id "dev"
                                   :source-paths ["src"]
-                                  ; :figwheel true
+                                  :figwheel true
                                   :compiler
                                   {:optimizations :none
                                    :output-to "resources/public/javascripts/dev.js"
                                    :output-dir "resources/public/javascripts/cljs-dev"
                                    :pretty-print true
                                    :source-map true}}]}
-            :plugins [[lein-cljsbuild "1.1.4"]])
+            :plugins [[lein-cljsbuild "1.1.4"]
+                      [lein-figwheel "0.5.8"]])
