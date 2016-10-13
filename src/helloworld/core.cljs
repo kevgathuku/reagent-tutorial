@@ -4,7 +4,7 @@
 (defn say-hello []
   (js/console.log "Hello from ClojureScript"))
 
-(def app-state
+(defonce app-state
   (reagent/atom {:message "Hello from app state"
                  :items [{:display "Karius"}
                           {:display "Lovren"}
