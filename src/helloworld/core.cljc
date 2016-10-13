@@ -1,6 +1,4 @@
 (ns helloworld.core)
 
-(defn -main
-  "I don't do a whole lot."
-  []
+(defn -main []
   (println "Hello, World!"))
